@@ -3,6 +3,7 @@ package com.f1.boxbox.controller;
 import com.f1.boxbox.model.Team;
 import com.f1.boxbox.service.TeamService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,13 +34,13 @@ public class TeamController {
     }
 
     @PostMapping
-    public ResponseEntity<Team> save(@RequestBody Team team) {
+    public ResponseEntity<Team> save(@Valid @RequestBody Team team) {
         Team t = teamService.create(team);
         return ResponseEntity.status(HttpStatus.CREATED).body(t);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Team> update(@PathVariable Long id, @RequestBody Team team) {
+    public ResponseEntity<Team> update(@PathVariable Long id, @Valid @RequestBody Team team) {
         try {
             Team t = teamService.update(id, team);
             return ResponseEntity.ok(t);
