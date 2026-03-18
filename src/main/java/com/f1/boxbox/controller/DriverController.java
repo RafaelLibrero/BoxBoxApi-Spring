@@ -58,4 +58,14 @@ public class DriverController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/search")
+    public List<Driver> searchDrivers(@RequestParam String name) {
+        return driverService.searchByName(name);
+    }
+
+    @GetMapping("/ranking")
+    public List<Driver> getRanking() {
+        return driverService.getDriversByPointsDesc();
+    }
 }

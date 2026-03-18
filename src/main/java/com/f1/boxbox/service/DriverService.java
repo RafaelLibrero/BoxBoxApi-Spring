@@ -19,6 +19,14 @@ public class DriverService {
 
     public List<Driver> findAll() {return driverRepository.findAll();}
 
+    public List<Driver> searchByName(String name) {
+        return driverRepository.findByDriverNameContainingIgnoreCase(name);
+    }
+
+    public List<Driver> getDriversByPointsDesc() {
+        return driverRepository.findAllByOrderByPointsDesc();
+    }
+
     @Transactional
     public Optional<Driver> findById (Long id) { return driverRepository.findById(id); }
 
