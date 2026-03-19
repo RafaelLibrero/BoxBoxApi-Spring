@@ -33,4 +33,7 @@ public class Race {
     @ManyToOne
     @JoinColumn(name = "winner_driver_id")
     private Driver winnerDriver;
+
+    @Enumerated(EnumType.STRING)
+    private RaceStatus status;
 }

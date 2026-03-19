@@ -59,31 +59,31 @@ INSERT INTO drivers (driver_name, car_number, team_id, flag, imagen, points) VAL
 ('Valtteri Bottas', 77, 11, 'flag_finland.png', 'valtteri_bottas.png', 0);
 
 -- RACES
-INSERT INTO races (race_name, image, location, end_date, winner_driver_id) VALUES
-('Australian Grand Prix', 'australia_gp.png', 'Melbourne', '2026-03-08', 3),
-('Chinese Grand Prix', 'china_gp.png', 'Shanghai', '2026-03-15', NULL),
-('Japanese Grand Prix', 'japan_gp.png', 'Suzuka', '2026-03-29', NULL),
-('Bahrain Grand Prix', 'bahrain_gp.png', 'Sakhir', '2026-04-12', NULL),
-('Saudi Arabian Grand Prix', 'saudi_gp.png', 'Jeddah', '2026-04-19', NULL),
-('Miami Grand Prix', 'miami_gp.png', 'Miami', '2026-05-03', NULL),
-('Canadian Grand Prix', 'canada_gp.png', 'Montreal', '2026-05-24', NULL),
-('Monaco Grand Prix', 'monaco_gp.png', 'Monaco', '2026-06-07', NULL),
-('Spanish Grand Prix', 'barcelona_gp.png', 'Barcelona', '2026-06-14', NULL),
-('Austrian Grand Prix', 'austria_gp.png', 'Spielberg', '2026-06-28', NULL),
-('British Grand Prix', 'britain_gp.png', 'Silverstone', '2026-07-05', NULL),
-('Belgian Grand Prix', 'belgium_gp.png', 'Spa-Francorchamps', '2026-07-19', NULL),
-('Hungarian Grand Prix', 'hungary_gp.png', 'Budapest', '2026-07-26', NULL),
-('Dutch Grand Prix', 'netherlands_gp.png', 'Zandvoort', '2026-08-23', NULL),
-('Italian Grand Prix', 'italy_gp.png', 'Monza', '2026-09-06', NULL),
-('Madrid Grand Prix', 'madrid_gp.png', 'Madrid', '2026-09-13', NULL),
-('Azerbaijan Grand Prix', 'azerbaijan_gp.png', 'Baku', '2026-09-27', NULL),
-('Singapore Grand Prix', 'singapore_gp.png', 'Singapore', '2026-10-11', NULL),
-('United States Grand Prix', 'usa_gp.png', 'Austin', '2026-10-25', NULL),
-('Mexico City Grand Prix', 'mexico_gp.png', 'Mexico City', '2026-11-01', NULL),
-('Sao Paulo Grand Prix', 'brazil_gp.png', 'Sao Paulo', '2026-11-08', NULL),
-('Las Vegas Grand Prix', 'vegas_gp.png', 'Las Vegas', '2026-11-21', NULL),
-('Qatar Grand Prix', 'qatar_gp.png', 'Lusail', '2026-11-29', NULL),
-('Abu Dhabi Grand Prix', 'abudhabi_gp.png', 'Yas Marina', '2026-12-06', NULL);
+INSERT INTO races (race_name, image, location, end_date, winner_driver_id, status) VALUES
+('Australian Grand Prix', 'australia_gp.png', 'Melbourne', '2026-03-08', 3, 'FINISHED'), -- Russell
+('Chinese Grand Prix', 'china_gp.png', 'Shanghai', '2026-03-15', 4, 'FINISHED'), -- Antonelli
+('Japanese Grand Prix', 'japan_gp.png', 'Suzuka', '2026-03-29', NULL, 'SCHEDULED'),
+('Bahrain Grand Prix', 'bahrain_gp.png', 'Sakhir', '2026-04-12', NULL, 'SCHEDULED'),
+('Saudi Arabian Grand Prix', 'saudi_gp.png', 'Jeddah', '2026-04-19', NULL, 'SCHEDULED'),
+('Miami Grand Prix', 'miami_gp.png', 'Miami', '2026-05-03', NULL, 'SCHEDULED'),
+('Canadian Grand Prix', 'canada_gp.png', 'Montreal', '2026-05-24', NULL, 'SCHEDULED'),
+('Monaco Grand Prix', 'monaco_gp.png', 'Monaco', '2026-06-07', NULL, 'SCHEDULED'),
+('Spanish Grand Prix', 'barcelona_gp.png', 'Barcelona', '2026-06-14', NULL, 'SCHEDULED'),
+('Austrian Grand Prix', 'austria_gp.png', 'Spielberg', '2026-06-28', NULL, 'SCHEDULED'),
+('British Grand Prix', 'britain_gp.png', 'Silverstone', '2026-07-05', NULL, 'SCHEDULED'),
+('Belgian Grand Prix', 'belgium_gp.png', 'Spa-Francorchamps', '2026-07-19', NULL, 'SCHEDULED'),
+('Hungarian Grand Prix', 'hungary_gp.png', 'Budapest', '2026-07-26', NULL, 'SCHEDULED'),
+('Dutch Grand Prix', 'netherlands_gp.png', 'Zandvoort', '2026-08-23', NULL, 'SCHEDULED'),
+('Italian Grand Prix', 'italy_gp.png', 'Monza', '2026-09-06', NULL, 'SCHEDULED'),
+('Madrid Grand Prix', 'madrid_gp.png', 'Madrid', '2026-09-13', NULL, 'SCHEDULED'),
+('Azerbaijan Grand Prix', 'azerbaijan_gp.png', 'Baku', '2026-09-27', NULL, 'SCHEDULED'),
+('Singapore Grand Prix', 'singapore_gp.png', 'Singapore', '2026-10-11', NULL, 'SCHEDULED'),
+('United States Grand Prix', 'usa_gp.png', 'Austin', '2026-10-25', NULL, 'SCHEDULED'),
+('Mexico City Grand Prix', 'mexico_gp.png', 'Mexico City', '2026-11-01', NULL, 'SCHEDULED'),
+('Sao Paulo Grand Prix', 'brazil_gp.png', 'Sao Paulo', '2026-11-08', NULL, 'SCHEDULED'),
+('Las Vegas Grand Prix', 'vegas_gp.png', 'Las Vegas', '2026-11-21', NULL, 'SCHEDULED'),
+('Qatar Grand Prix', 'qatar_gp.png', 'Lusail', '2026-11-29', NULL, 'SCHEDULED'),
+('Abu Dhabi Grand Prix', 'abudhabi_gp.png', 'Yas Marina', '2026-12-06', NULL, 'SCHEDULED');
 
 -- PREVIOUS TEAMS
 
