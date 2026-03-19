@@ -1,9 +1,3 @@
--- RESET (opcional pero recomendado)
-DELETE FROM previous_teams;
-DELETE FROM races;
-DELETE FROM drivers;
-DELETE FROM teams;
-
 -- ======================
 -- TEAMS
 -- ======================
@@ -33,48 +27,48 @@ INSERT INTO teams (team_name, logo, points, active) VALUES
 -- DRIVERS
 -- ======================
 INSERT INTO drivers (driver_name, car_number, team_id, flag, imagen, points) VALUES
-('Max Verstappen', 1, (SELECT team_id FROM teams WHERE team_name='Red Bull'), 'flag_netherlands.png', 'max_verstappen.png', 8),
-('Isack Hadjar', 6, (SELECT team_id FROM teams WHERE team_name='Red Bull'), 'flag_france.png', 'isack_hadjar.png', 0),
+('Max Verstappen', 1, (SELECT team_id FROM teams WHERE team_name='Red Bull' LIMIT 1), 'flag_netherlands.png', 'max_verstappen.png', 8),
+('Isack Hadjar', 6, (SELECT team_id FROM teams WHERE team_name='Red Bull' LIMIT 1), 'flag_france.png', 'isack_hadjar.png', 0),
 
-('George Russell', 63, (SELECT team_id FROM teams WHERE team_name='Mercedes'), 'flag_uk.png', 'george_russell.png', 25),
-('Kimi Antonelli', 12, (SELECT team_id FROM teams WHERE team_name='Mercedes'), 'flag_italy.png', 'kimi_antonelli.png', 18),
+('George Russell', 63, (SELECT team_id FROM teams WHERE team_name='Mercedes' LIMIT 1), 'flag_uk.png', 'george_russell.png', 25),
+('Kimi Antonelli', 12, (SELECT team_id FROM teams WHERE team_name='Mercedes' LIMIT 1), 'flag_italy.png', 'kimi_antonelli.png', 18),
 
-('Charles Leclerc', 16, (SELECT team_id FROM teams WHERE team_name='Ferrari'), 'flag_monaco.png', 'charles_leclerc.png', 15),
-('Lewis Hamilton', 44, (SELECT team_id FROM teams WHERE team_name='Ferrari'), 'flag_uk.png', 'lewis_hamilton.png', 12),
+('Charles Leclerc', 16, (SELECT team_id FROM teams WHERE team_name='Ferrari' LIMIT 1), 'flag_monaco.png', 'charles_leclerc.png', 15),
+('Lewis Hamilton', 44, (SELECT team_id FROM teams WHERE team_name='Ferrari' LIMIT 1), 'flag_uk.png', 'lewis_hamilton.png', 12),
 
-('Lando Norris', 4, (SELECT team_id FROM teams WHERE team_name='McLaren'), 'flag_uk.png', 'lando_norris.png', 10),
-('Oscar Piastri', 81, (SELECT team_id FROM teams WHERE team_name='McLaren'), 'flag_australia.png', 'oscar_piastri.png', 0),
+('Lando Norris', 4, (SELECT team_id FROM teams WHERE team_name='McLaren' LIMIT 1), 'flag_uk.png', 'lando_norris.png', 10),
+('Oscar Piastri', 81, (SELECT team_id FROM teams WHERE team_name='McLaren' LIMIT 1), 'flag_australia.png', 'oscar_piastri.png', 0),
 
-('Fernando Alonso', 14, (SELECT team_id FROM teams WHERE team_name='Aston Martin'), 'flag_spain.png', 'fernando_alonso.png', 0),
-('Lance Stroll', 18, (SELECT team_id FROM teams WHERE team_name='Aston Martin'), 'flag_canada.png', 'lance_stroll.png', 0),
+('Fernando Alonso', 14, (SELECT team_id FROM teams WHERE team_name='Aston Martin' LIMIT 1), 'flag_spain.png', 'fernando_alonso.png', 0),
+('Lance Stroll', 18, (SELECT team_id FROM teams WHERE team_name='Aston Martin' LIMIT 1), 'flag_canada.png', 'lance_stroll.png', 0),
 
-('Pierre Gasly', 10, (SELECT team_id FROM teams WHERE team_name='Alpine'), 'flag_france.png', 'pierre_gasly.png', 1),
-('Franco Colapinto', 43, (SELECT team_id FROM teams WHERE team_name='Alpine'), 'flag_argentina.png', 'franco_colapinto.png', 0),
+('Pierre Gasly', 10, (SELECT team_id FROM teams WHERE team_name='Alpine' LIMIT 1), 'flag_france.png', 'pierre_gasly.png', 1),
+('Franco Colapinto', 43, (SELECT team_id FROM teams WHERE team_name='Alpine' LIMIT 1), 'flag_argentina.png', 'franco_colapinto.png', 0),
 
-('Esteban Ocon', 31, (SELECT team_id FROM teams WHERE team_name='Haas'), 'flag_france.png', 'esteban_ocon.png', 0),
-('Oliver Bearman', 50, (SELECT team_id FROM teams WHERE team_name='Haas'), 'flag_uk.png', 'ollie_bearman.png', 6),
+('Esteban Ocon', 31, (SELECT team_id FROM teams WHERE team_name='Haas' LIMIT 1), 'flag_france.png', 'esteban_ocon.png', 0),
+('Oliver Bearman', 50, (SELECT team_id FROM teams WHERE team_name='Haas' LIMIT 1), 'flag_uk.png', 'ollie_bearman.png', 6),
 
-('Liam Lawson', 30, (SELECT team_id FROM teams WHERE team_name='Racing Bulls'), 'flag_new_zealand.png', 'liam_lawson.png', 0),
-('Arvid Lindblad', 41, (SELECT team_id FROM teams WHERE team_name='Racing Bulls'), 'flag_uk.png', 'arvid_lindblad.png', 4),
+('Liam Lawson', 30, (SELECT team_id FROM teams WHERE team_name='Racing Bulls' LIMIT 1), 'flag_new_zealand.png', 'liam_lawson.png', 0),
+('Arvid Lindblad', 41, (SELECT team_id FROM teams WHERE team_name='Racing Bulls' LIMIT 1), 'flag_uk.png', 'arvid_lindblad.png', 4),
 
-('Nico Hulkenberg', 27, (SELECT team_id FROM teams WHERE team_name='Audi'), 'flag_germany.png', 'nico_hulkenberg.png', 0),
-('Gabriel Bortoleto', 5, (SELECT team_id FROM teams WHERE team_name='Audi'), 'flag_brazil.png', 'gabriel_bortoleto.png', 2),
+('Nico Hulkenberg', 27, (SELECT team_id FROM teams WHERE team_name='Audi' LIMIT 1), 'flag_germany.png', 'nico_hulkenberg.png', 0),
+('Gabriel Bortoleto', 5, (SELECT team_id FROM teams WHERE team_name='Audi' LIMIT 1), 'flag_brazil.png', 'gabriel_bortoleto.png', 2),
 
-('Alexander Albon', 23, (SELECT team_id FROM teams WHERE team_name='Williams'), 'flag_thailand.png', 'alex_albon.png', 0),
-('Carlos Sainz', 55, (SELECT team_id FROM teams WHERE team_name='Williams'), 'flag_spain.png', 'carlos_sainz.png', 0),
+('Alexander Albon', 23, (SELECT team_id FROM teams WHERE team_name='Williams' LIMIT 1), 'flag_thailand.png', 'alex_albon.png', 0),
+('Carlos Sainz', 55, (SELECT team_id FROM teams WHERE team_name='Williams' LIMIT 1), 'flag_spain.png', 'carlos_sainz.png', 0),
 
-('Sergio Perez', 11, (SELECT team_id FROM teams WHERE team_name='Cadillac'), 'flag_mexico.png', 'sergio_perez.png', 0),
-('Valtteri Bottas', 77, (SELECT team_id FROM teams WHERE team_name='Cadillac'), 'flag_finland.png', 'valtteri_bottas.png', 0);
+('Sergio Perez', 11, (SELECT team_id FROM teams WHERE team_name='Cadillac' LIMIT 1), 'flag_mexico.png', 'sergio_perez.png', 0),
+('Valtteri Bottas', 77, (SELECT team_id FROM teams WHERE team_name='Cadillac' LIMIT 1), 'flag_finland.png', 'valtteri_bottas.png', 0);
 
 -- ======================
 -- RACES
 -- ======================
 INSERT INTO races (race_name, image, location, end_date, winner_driver_id, status) VALUES
 ('Australian Grand Prix', 'australia_gp.png', 'Melbourne', '2026-03-08',
- (SELECT driver_id FROM drivers WHERE driver_name='George Russell'), 'FINISHED'),
+ (SELECT driver_id FROM drivers WHERE driver_name='George Russell' LIMIT 1), 'FINISHED'),
 
 ('Chinese Grand Prix', 'china_gp.png', 'Shanghai', '2026-03-15',
- (SELECT driver_id FROM drivers WHERE driver_name='Kimi Antonelli'), 'FINISHED'),
+ (SELECT driver_id FROM drivers WHERE driver_name='Kimi Antonelli' LIMIT 1), 'FINISHED'),
 
 ('Japanese Grand Prix', 'japan_gp.png', 'Suzuka', '2026-03-29', NULL, 'SCHEDULED'),
 ('Bahrain Grand Prix', 'bahrain_gp.png', 'Sakhir', '2026-04-12', NULL, 'SCHEDULED'),
@@ -103,51 +97,35 @@ INSERT INTO races (race_name, image, location, end_date, winner_driver_id, statu
 -- PREVIOUS TEAMS
 -- ======================
 INSERT INTO previous_teams (driver_id, team_id) VALUES
-
--- Verstappen
-((SELECT driver_id FROM drivers WHERE driver_name='Max Verstappen'),
- (SELECT team_id FROM teams WHERE team_name='Toro Rosso')),
-
--- Hadjar
-((SELECT driver_id FROM drivers WHERE driver_name='Isack Hadjar'),
- (SELECT team_id FROM teams WHERE team_name='Racing Bulls')),
-
--- Russell
-((SELECT driver_id FROM drivers WHERE driver_name='George Russell'),
- (SELECT team_id FROM teams WHERE team_name='Williams')),
-
--- Leclerc
-((SELECT driver_id FROM drivers WHERE driver_name='Charles Leclerc'),
- (SELECT team_id FROM teams WHERE team_name='Sauber')),
-
--- Hamilton
-((SELECT driver_id FROM drivers WHERE driver_name='Lewis Hamilton'),
- (SELECT team_id FROM teams WHERE team_name='McLaren')),
-((SELECT driver_id FROM drivers WHERE driver_name='Lewis Hamilton'),
- (SELECT team_id FROM teams WHERE team_name='Mercedes')),
-
--- Alonso
-((SELECT driver_id FROM drivers WHERE driver_name='Fernando Alonso'),
- (SELECT team_id FROM teams WHERE team_name='Minardi')),
-((SELECT driver_id FROM drivers WHERE driver_name='Fernando Alonso'),
- (SELECT team_id FROM teams WHERE team_name='Renault')),
-((SELECT driver_id FROM drivers WHERE driver_name='Fernando Alonso'),
- (SELECT team_id FROM teams WHERE team_name='McLaren')),
-((SELECT driver_id FROM drivers WHERE driver_name='Fernando Alonso'),
- (SELECT team_id FROM teams WHERE team_name='Ferrari')),
-((SELECT driver_id FROM drivers WHERE driver_name='Fernando Alonso'),
- (SELECT team_id FROM teams WHERE team_name='Alpine')),
-
--- Stroll
-((SELECT driver_id FROM drivers WHERE driver_name='Lance Stroll'),
- (SELECT team_id FROM teams WHERE team_name='Williams')),
-((SELECT driver_id FROM drivers WHERE driver_name='Lance Stroll'),
- (SELECT team_id FROM teams WHERE team_name='Force India / Racing Point')),
-
--- Gasly
-((SELECT driver_id FROM drivers WHERE driver_name='Pierre Gasly'),
- (SELECT team_id FROM teams WHERE team_name='Toro Rosso')),
-((SELECT driver_id FROM drivers WHERE driver_name='Pierre Gasly'),
- (SELECT team_id FROM teams WHERE team_name='Red Bull')),
-((SELECT driver_id FROM drivers WHERE driver_name='Pierre Gasly'),
- (SELECT team_id FROM teams WHERE team_name='AlphaTauri'));
+((SELECT driver_id FROM drivers WHERE driver_name='Max Verstappen' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Toro Rosso' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Isack Hadjar' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Racing Bulls' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='George Russell' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Williams' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Charles Leclerc' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Sauber' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Lewis Hamilton' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='McLaren' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Lewis Hamilton' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Mercedes' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Fernando Alonso' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Minardi' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Fernando Alonso' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Renault' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Fernando Alonso' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='McLaren' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Fernando Alonso' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Ferrari' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Fernando Alonso' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Alpine' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Lance Stroll' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Williams' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Lance Stroll' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Force India / Racing Point' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Pierre Gasly' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Toro Rosso' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Pierre Gasly' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='Red Bull' LIMIT 1)),
+((SELECT driver_id FROM drivers WHERE driver_name='Pierre Gasly' LIMIT 1),
+ (SELECT team_id FROM teams WHERE team_name='AlphaTauri' LIMIT 1));
