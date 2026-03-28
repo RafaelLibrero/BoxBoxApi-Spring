@@ -1,6 +1,7 @@
 package com.f1.boxbox.controller;
 
-import com.f1.boxbox.model.Team;
+import com.f1.boxbox.dto.request.TeamRequest;
+import com.f1.boxbox.dto.response.TeamResponse;
 import com.f1.boxbox.service.TeamService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -22,27 +23,27 @@ public class TeamController {
     }
 
     @GetMapping
-    public List<Team> findAll() {
+    public List<TeamResponse> findAll() {
         return teamService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Team> findById(@PathVariable Long id) {
-        return teamService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<TeamResponse> findById(@PathVariable Long id) {
+        TeamResponse team = teamService.findById(id);
+        return ResponseEntity.ok(team);
     }
 
     @PostMapping
-    public ResponseEntity<Team> save(@Valid @RequestBody Team team) {
-        Team t = teamService.create(team);
+    public ResponseEntity<TeamResponse> save(@Valid @RequestBody TeamRequest teamRequest) {
+        TeamResponse t = teamService.create(teamRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(t);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Team> update(@PathVariable Long id, @Valid @RequestBody Team team) {
+    public ResponseEntity<TeamResponse> update(@PathVariable Long id,
+                                               @Valid @RequestBody TeamRequest teamRequest) {
         try {
-            Team t = teamService.update(id, team);
+            TeamResponse t = teamService.update(id, teamRequest);
             return ResponseEntity.ok(t);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();

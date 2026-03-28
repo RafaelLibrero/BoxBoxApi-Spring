@@ -1,38 +1,22 @@
-package com.f1.boxbox.model;
+package com.f1.boxbox.dto.request;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.Data;
 
-import java.util.List;
-
-@Entity
-@Table(name = "teams")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-
-public class Team {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long teamId;
+public class TeamRequest {
 
     @NotBlank(message = "El nombre del equipo es obligatorio")
     @Size(min = 2, max = 100, message = "El nombre debe tener entre 2 y 100 caracteres")
-    @Column(nullable = false)
     private String teamName;
 
     private String logo;
 
-    @OneToMany(mappedBy = "team")
-    private List<Driver> drivers;
-
     @PositiveOrZero
     private int points;
 
-    @Column(nullable = false)
     private boolean active;
 }
+

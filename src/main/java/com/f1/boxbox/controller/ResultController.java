@@ -1,6 +1,7 @@
 package com.f1.boxbox.controller;
 
-import com.f1.boxbox.model.Result;
+import com.f1.boxbox.dto.request.ResultRequest;
+import com.f1.boxbox.dto.response.ResultResponse;
 import com.f1.boxbox.service.ResultService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -22,25 +23,27 @@ public class ResultController {
     }
 
     @GetMapping
-    public List<Result> findAll() { return resultService.findAll(); }
+    public List<ResultResponse> findAll() {
+        return resultService.findAll();
+    }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Result> findById(@PathVariable Long id) {
-        return resultService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<ResultResponse> findById(@PathVariable Long id) {
+        ResultResponse result = resultService.findById(id);
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping
-    public ResponseEntity<Result> save(@Valid @RequestBody Result result){
-        Result r = resultService.create(result);
+    public ResponseEntity<ResultResponse> save(@Valid @RequestBody ResultRequest resultRequest) {
+        ResultResponse r = resultService.create(resultRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(r);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Result> update(@PathVariable Long id, @Valid @RequestBody Result result){
+    public ResponseEntity<ResultResponse> update(@PathVariable Long id,
+                                                 @Valid @RequestBody ResultRequest resultRequest) {
         try {
-            Result r = resultService.update(id, result);
+            ResultResponse r = resultService.update(id, resultRequest);
             return ResponseEntity.ok(r);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();

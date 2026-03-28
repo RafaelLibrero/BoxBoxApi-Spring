@@ -1,6 +1,7 @@
 package com.f1.boxbox.controller;
 
-import com.f1.boxbox.model.Driver;
+import com.f1.boxbox.dto.request.DriverRequest;
+import com.f1.boxbox.dto.response.DriverResponse;
 import com.f1.boxbox.service.DriverService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -22,27 +23,27 @@ public class DriverController {
     }
 
     @GetMapping
-    public List<Driver> findAll() {
+    public List<DriverResponse> findAll() {
         return driverService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Driver> findById(@PathVariable Long id) {
-        return driverService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<DriverResponse> findById(@PathVariable Long id) {
+        DriverResponse driver = driverService.findById(id);
+        return ResponseEntity.ok(driver);
     }
 
     @PostMapping
-    public ResponseEntity<Driver> save(@Valid @RequestBody Driver driver) {
-        Driver d = driverService.create(driver);
+    public ResponseEntity<DriverResponse> save(@Valid @RequestBody DriverRequest driverRequest) {
+        DriverResponse d = driverService.create(driverRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(d);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Driver> update(@PathVariable Long id,@Valid @RequestBody Driver driver) {
+    public ResponseEntity<DriverResponse> update(@PathVariable Long id,
+                                                 @Valid @RequestBody DriverRequest driverRequest) {
         try {
-            Driver d = driverService.update(id, driver);
+            DriverResponse d = driverService.update(id, driverRequest);
             return ResponseEntity.ok(d);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
@@ -60,12 +61,12 @@ public class DriverController {
     }
 
     @GetMapping("/search")
-    public List<Driver> searchDrivers(@RequestParam String name) {
+    public List<DriverResponse> searchDrivers(@RequestParam String name) {
         return driverService.searchByName(name);
     }
 
     @GetMapping("/ranking")
-    public List<Driver> getRanking() {
+    public List<DriverResponse> getRanking() {
         return driverService.getDriversByPointsDesc();
     }
 }

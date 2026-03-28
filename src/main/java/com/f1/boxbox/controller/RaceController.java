@@ -1,6 +1,7 @@
 package com.f1.boxbox.controller;
 
-import com.f1.boxbox.model.Race;
+import com.f1.boxbox.dto.request.RaceRequest;
+import com.f1.boxbox.dto.response.RaceResponse;
 import com.f1.boxbox.service.RaceService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -22,27 +23,27 @@ public class RaceController {
     }
 
     @GetMapping
-    public List<Race> findAll() {
+    public List<RaceResponse> findAll() {
         return raceService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Race> findById(@PathVariable Long id) {
-        return raceService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<RaceResponse> findById(@PathVariable Long id) {
+        RaceResponse race = raceService.findById(id);
+        return ResponseEntity.ok(race);
     }
 
     @PostMapping
-    public ResponseEntity<Race> create(@Valid @RequestBody Race race) {
-        Race r = raceService.create(race);
+    public ResponseEntity<RaceResponse> save(@Valid @RequestBody RaceRequest raceRequest) {
+        RaceResponse r = raceService.create(raceRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(r);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Race> update(@PathVariable Long id, @Valid @RequestBody Race race) {
+    public ResponseEntity<RaceResponse> update(@PathVariable Long id,
+                                               @Valid @RequestBody RaceRequest raceRequest) {
         try {
-            Race r = raceService.update(id, race);
+            RaceResponse r = raceService.update(id, raceRequest);
             return ResponseEntity.ok(r);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
