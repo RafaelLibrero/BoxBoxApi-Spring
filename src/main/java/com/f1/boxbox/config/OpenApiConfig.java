@@ -1,6 +1,7 @@
 package com.f1.boxbox.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +27,10 @@ public class OpenApiConfig {
                             - Registrar y consultar resultados de cada carrera, incluyendo posiciones y puntos obtenidos.
                             - Gestionar el historial de equipos de cada piloto.
                             """)
-                        .version("1.0"))
+                        .version("1.0")
+                        .contact(new Contact()
+                                .name("Rafael Librero")
+                                .url("https://github.com/RafaelLibrero/BoxBoxApi-Spring")))
                         .servers(List.of(
                                 new Server().url("https://boxboxapi-spring-production.up.railway.app/")
                         ));
