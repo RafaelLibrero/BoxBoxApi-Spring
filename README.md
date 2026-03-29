@@ -1,5 +1,9 @@
 # BoxBoxApi-Spring
 
+![Java](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0-6DB33F?logo=springboot&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)
+
 API REST para la gestión de datos de Fórmula 1: pilotos, equipos, carreras y resultados.  
 Desarrollada con **Spring Boot**, usando **H2** en memoria para pruebas y PostgreSQL en producción.
 
@@ -100,9 +104,21 @@ http://localhost:8080/
 Puedes consultar la documentación Swagger/OpenAPI en:  
 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
+![Swagger UI](docs/screenshots/swagger-ui.png)
+
 ## 🧪 Tests
 
 Los tests unitarios usan **JUnit 5** y **Mockito**:
 
 ```bash
 mvn test
+```
+
+## 🌐 Despliegue
+
+La API está desplegada en Railway:
+
+🔗 https://boxboxapi-spring-production.up.railway.app/
+
+Swagger disponible en:
+🔗 https://boxboxapi-spring-production.up.railway.app/swagger-ui/index.html
